@@ -943,8 +943,7 @@ section { scroll-margin-top: 95px; }
   }
 }
 
-/* ===== শুধু হিরো সেকশনের লোগো ঘুরবে ===== */
-.hero-logo-card .spin-logo {
+.hero-spin-logo {
   animation: spin 4s linear infinite;
 }
 
@@ -953,7 +952,7 @@ section { scroll-margin-top: 95px; }
   to   { transform: rotate(360deg); }
 }
 
-/* ===== কিন্তু সাদা কার্ড নিজে ঘুরবে না ===== */
+/* সাদা কার্ড যেন না ঘুরে */
 .hero-logo-card {
   animation: none !important;
 }
