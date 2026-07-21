@@ -911,6 +911,7 @@ async function initFirebaseAndFetchDonors() {
 
 function injectGoogleFormsSection() {
   const formsData = [
+    { title: "বৃক্ষরোপণ", icon: "fa-solid fa-tree", link: "https://forms.gle/ij7dMaHYEJ3HpGWSA", color: "#2e7d32" },
     { title: "টিউবওয়েল আবেদন", icon: "fa-solid fa-tint", link: "https://forms.gle/qJJN9jSNS6PbxrVt6", color: "#08bfe7" },
     { title: "শীতবস্ত্র আবেদন", icon: "fa-solid fa-snowflake", link: "https://forms.gle/kb5ozmsSGzrXQFmZ8", color: "#087b3e" },
     { title: "সদস্য ফর্ম", icon: "fa-solid fa-users", link: "https://forms.gle/FKyNoSisCo4jXYbj9", color: "#f79009" },
