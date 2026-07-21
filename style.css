@@ -945,7 +945,7 @@ section { scroll-margin-top: 95px; }
 
 /* শুধুমাত্র হেডারের (বড়) লোগোটি ঘুরবে */
 .hero .spin-logo {
-  animation: spin 10s linear infinite;
+  animation: spin 14s linear infinite;
 }
 
 @keyframes spin {
