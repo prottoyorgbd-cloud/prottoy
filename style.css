@@ -218,13 +218,13 @@ section { scroll-margin-top: 95px; }
   box-shadow: var(--shadow);
   backdrop-filter: blur(10px);
 }
-.hero-logo-card img {
+/*.hero-logo-card img {
   width: 100%;
   max-height: 330px;
   object-fit: contain;
   border-radius: 24px;
   background: #fff;
-}
+}*/
 .hero-logo-card div { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 8px 2px; }
 .hero-logo-card h2 { margin: 0; color: var(--green-dark); font-size: 2rem; }
 .hero-logo-card p { margin: 0; color: var(--muted); }
