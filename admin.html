@@ -356,23 +356,29 @@
 <div id="receiptSection" style="display: none;">
   <div class="action-bar">
     <h2>অনুদানের রসিদ তৈরি করুন</h2>
-    <span style="color: var(--text-muted); font-size: 16px;">দাতার নাম, পরিমাণ ও খাত লিখুন—রসিদ নম্বর ও তারিখ স্বয়ংক্রিয়ভাবে যুক্ত হবে।</span>
+    <span style="color: var(--text-muted); font-size: 16px;">
+      দাতার নাম, পরিমাণ ও খাত লিখুন—রসিদ নম্বর ও তারিখ স্বয়ংক্রিয়ভাবে যুক্ত হবে।
+    </span>
   </div>
 
-  <div class="receipt-layout">
-    <form class="form-card receipt-form" id="receiptForm" novalidate>
-      <div class="form-grid single">
-        <label class="field">
+  <div class="donation-receipt-layout">
+    <form class="donation-form-card donation-receipt-form" id="receiptForm" novalidate>
+
+      <div class="form-grid donation-single">
+
+        <label class="donation-field">
           <span>দাতার নাম *</span>
           <input type="text" name="donorName" autocomplete="off">
-          <small class="field-error" hidden></small>
+          <small class="donation-field-error" hidden></small>
         </label>
-        <label class="field">
+
+        <label class="donation-field">
           <span>পরিমাণ (টাকা) *</span>
           <input type="number" name="amount" min="1" step="any" placeholder="যেমন: ৫০০">
-          <small class="field-error" hidden></small>
+          <small class="donation-field-error" hidden></small>
         </label>
-        <label class="field">
+
+        <label class="donation-field">
           <span>খাত / তহবিল *</span>
           <select name="cause">
             <option value="">নির্বাচন করুন</option>
@@ -386,62 +392,112 @@
             <option>বৃক্ষরোপণ প্রকল্প</option>
             <option>ঘর নির্মাণ প্রকল্প</option>
           </select>
-          <small class="field-error" hidden></small>
+          <small class="donation-field-error" hidden></small>
         </label>
-        <label class="field">
+
+        <label class="donation-field">
           <span>অনুমোদনকারীর নাম (ঐচ্ছিক)</span>
           <input type="text" name="signatory" placeholder="স্বাক্ষরের ওপরে নাম দেখাতে চাইলে লিখুন">
-          <small class="field-error" hidden></small>
+          <small class="donation-field-error" hidden></small>
         </label>
-        <label class="field checkbox-field">
-          <span class="checkbox-row">
+
+        <label class="donation-field donation-checkbox-field">
+          <span class="donation-checkbox-row">
             <input type="checkbox" name="withQr" checked>
             রসিদে QR কোড যুক্ত করুন
           </span>
-          <small class="field-error" hidden></small>
+          <small class="donation-field-error" hidden></small>
         </label>
+
       </div>
-      <div class="form-footer receipt-actions">
-        <button class="btn" type="submit" data-action="pdf" style="width:auto; background: var(--primary);">PDF ডাউনলোড</button>
-        <button class="btn btn-secondary" type="submit" data-action="print" style="width:auto;">প্রিন্ট করুন</button>
-        <button class="btn btn-secondary" type="submit" data-action="image" style="width:auto;">ছবি হিসেবে সংরক্ষণ</button>
-        <p class="form-success" id="receiptStatus" hidden></p>
+
+      <div class="donation-receipt-actions">
+        <button class="btn" type="submit" data-action="pdf" style="width:auto; background: var(--primary);">
+          PDF ডাউনলোড
+        </button>
+
+        <button class="btn btn-secondary" type="submit" data-action="print" style="width:auto;">
+          প্রিন্ট করুন
+        </button>
+
+        <button class="btn btn-secondary" type="submit" data-action="image" style="width:auto;">
+          ছবি হিসেবে সংরক্ষণ
+        </button>
+
+        <p class="donation-form-success" id="receiptStatus" hidden></p>
       </div>
+
     </form>
 
-    <div class="receipt-preview-wrap">
-      <div class="receipt-paper" id="receiptPaper" aria-label="রসিদের প্রিভিউ">
-        <div class="receipt-head">
-          <img class="receipt-logo" src="assets/images/prottoy-logo.png" alt="প্রত্যয় লোগো">
+    <div class="donation-preview-wrap">
+      <div class="donation-receipt-paper" id="receiptPaper" aria-label="রসিদের প্রিভিউ">
+
+        <div class="donation-receipt-head">
+          <img class="donation-receipt-logo"
+               src="assets/images/prottoy-logo.png"
+               alt="প্রত্যয় লোগো">
+
           <div>
             <strong>প্রত্যয়</strong>
             <span>সংকল্প পাশে থাকার</span>
             <small>নাঙ্গলকোট, কুমিল্লা, বাংলাদেশ</small>
           </div>
-          <span class="receipt-tag">অনুদান রসিদ</span>
+
+          <span class="donation-receipt-tag">
+            অনুদান রসিদ
+          </span>
         </div>
-        <div class="receipt-meta">
-          <p>রসিদ নং: <strong id="rcNumber">—</strong></p>
-          <p>তারিখ: <strong id="rcDate">—</strong></p>
+
+        <div class="donation-receipt-meta">
+          <p>রসিদ নং:
+            <strong id="rcNumber">—</strong>
+          </p>
+
+          <p>তারিখ:
+            <strong id="rcDate">—</strong>
+          </p>
         </div>
-        <div class="receipt-body">
-          <div class="receipt-row"><span>দাতার নাম</span><strong id="rcName">—</strong></div>
-          <div class="receipt-row"><span>খাত / তহবিল</span><strong id="rcCause">—</strong></div>
-          <div class="receipt-amount">
+
+        <div class="donation-receipt-body">
+
+          <div class="donation-receipt-row">
+            <span>দাতার নাম</span>
+            <strong id="rcName">—</strong>
+          </div>
+
+          <div class="donation-receipt-row">
+            <span>খাত / তহবিল</span>
+            <strong id="rcCause">—</strong>
+          </div>
+
+          <div class="donation-receipt-amount">
             <span>প্রদত্ত পরিমাণ</span>
             <strong id="rcAmount">৳ ০</strong>
           </div>
+
         </div>
-        <div class="receipt-foot">
-          <div class="receipt-sign">
-            <span class="sign-line"></span>
+
+        <div class="donation-receipt-foot">
+
+          <div class="donation-receipt-sign">
+            <span class="donation-sign-line"></span>
             <small id="rcSignatory">অনুমোদিত স্বাক্ষর</small>
           </div>
-          <div class="receipt-qr" id="rcQr" aria-hidden="true"></div>
+
+          <div class="donation-receipt-qr"
+               id="rcQr"
+               aria-hidden="true">
+          </div>
+
         </div>
-        <p class="receipt-note">আপনার অনুদানের জন্য প্রত্যয়ের পক্ষ থেকে আন্তরিক ধন্যবাদ। এই রসিদটি কম্পিউটারে তৈরি।</p>
+
+        <p class="donation-receipt-note">
+          আপনার অনুদানের জন্য প্রত্যয়ের পক্ষ থেকে আন্তরিক ধন্যবাদ। এই রসিদটি কম্পিউটারে তৈরি।
+        </p>
+
       </div>
     </div>
+
   </div>
 </div>
 
