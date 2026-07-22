@@ -765,7 +765,9 @@ const TAB_LOADERS = {
   requestsSection: loadBloodRequests,
   messagesSection: loadContactMessages,
   receiptsSection: loadReceipts,
-  noticesSection: loadNotices
+  noticesSection: loadNotices,
+  /*নিউ*/
+  receiptSection: loadReceipts
 };
 
 const tabButtons = document.querySelectorAll(".tab-btn");
